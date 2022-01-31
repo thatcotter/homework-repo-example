@@ -4,7 +4,6 @@ interface AppState {
     velocity: any,
     time: number,
     sprite: PIXI.Sprite,
-    graphics: PIXI.Graphics
 }
 
 const load = (app: PIXI.Application) => {
@@ -42,10 +41,10 @@ const main = async () => {
     // )
     app.stage.addChild(sprite);
 
-    const graphics = new PIXI.Graphics();
-    graphics.x = window.innerWidth / 2 - graphics.width / 2;
-    graphics.y = window.innerHeight / 2 - graphics.height / 2;
-    app.stage.addChild(graphics);
+    // const graphics = new PIXI.Graphics();
+    // graphics.x = window.innerWidth / 2 - graphics.width / 2;
+    // graphics.y = window.innerHeight / 2 - graphics.height / 2;
+    // app.stage.addChild(graphics);
 
     // Handle window resizing
     window.addEventListener('resize', (_e) => {
@@ -61,7 +60,6 @@ const main = async () => {
     let context: AppState = {
         velocity: { x: 1, y: 1 },
         sprite,
-        graphics,
         time
     };
 
@@ -84,13 +82,13 @@ function update(this: any, delta: number) {
     this.sprite.x += this.velocity.x;
     this.sprite.y += this.velocity.y;
 
-    this.graphics.clear()
-    this.graphics.position.set(
-        this.sprite.position.x, 
-        this.sprite.position.y
-        )
-    this.graphics.lineStyle(10, 0xffffff, 1)
-    this.graphics.drawCircle(0, 0, 100)
+    // this.graphics.clear()
+    // this.graphics.position.set(
+    //     this.sprite.position.x, 
+    //     this.sprite.position.y
+    //     )
+    // this.graphics.lineStyle(10, 0xffffff, 1)
+    // this.graphics.drawCircle(0, 0, 100)
 };
 
 main();
